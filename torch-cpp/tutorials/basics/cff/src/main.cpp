@@ -1,11 +1,16 @@
 // Copyright 2020-present pytorch-cpp Authors
 #include <torch/torch.h>
+#include <torch/script.h>
 #include <iostream>
 #include <iomanip>
+#include <filesystem>
 #include "neural_net.h"
 
 int main() {
-    std::cout << "FeedForward Neural Network\n\n";
+
+
+
+    std::cout << "Convolutional Neural Network\n\n";
 
     // Device
     auto cuda_available = torch::cuda::is_available();
@@ -17,8 +22,8 @@ int main() {
     // const int64_t hidden_size = 500;
     const int64_t num_classes = 10;
     const int64_t batch_size = 100;
-    const size_t num_epochs = 5;
-    const double learning_rate = 0.001;
+    const size_t num_epochs = 2;
+    const double learning_rate = 0.1;
 
     const std::string MNIST_data_path = "../../../../data/mnist/";
 
@@ -125,4 +130,23 @@ int main() {
     auto test_sample_mean_loss = running_loss / num_test_samples;
 
     std::cout << "Testset - Loss: " << test_sample_mean_loss << ", Accuracy: " << test_accuracy << '\n';
+
+
+    // Save model
+    std::string directory_name("../../../../saved_model/");
+
+    std::filesystem::create_directory(directory_name)?
+    std::cout << "created directory - " << directory_name << std::endl :
+    std::cout << "create_directory() failed (alreadly exists)" << std::endl;
+
+
+    const std::string CFF_model_path = "../../../../saved_model/traincff.ckpt";
+    std::cout << CFF_model_path << std::endl;
+    torch::save(model, CFF_model_path);
+
+
+
+
+
+
 }

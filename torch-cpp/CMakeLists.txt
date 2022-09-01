@@ -69,13 +69,17 @@ endif()
 # Basics
 add_subdirectory("tutorials/basics/fff")
 add_subdirectory("tutorials/basics/cff")
+add_subdirectory("tutorials/basics/fff_ft")
+add_subdirectory("tutorials/basics/cff_ft")
 # add_subdirectory("tutorials/basics/linear_regression")
 # add_subdirectory("tutorials/basics/logistic_regression")
 # add_subdirectory("tutorials/basics/pytorch_basics")
 
 add_custom_target(basics)
 add_dependencies(basics
+    fff_ft
     fff 
+    cff_ft
     cff)
 # add_dependencies(basics
 #     feedforward-neural-network
