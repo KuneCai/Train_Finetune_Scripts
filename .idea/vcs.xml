@@ -3,5 +3,7 @@
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/pytorch-cpp" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/pytorch-cpp/extern/cxxopts" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/torch-cpp/extern/cxxopts" vcs="Git" />
   </component>
 </project>
